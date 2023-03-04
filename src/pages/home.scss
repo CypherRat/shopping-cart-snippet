@@ -1,0 +1,202 @@
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  .products {
+    &-label {
+      line-height: 1;
+      font-weight: bold;
+      font-family: var(--poppins);
+      letter-spacing: 1px;
+    }
+    .prod {
+      // img> det
+      background-color: #fff;
+      padding: 10px;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.18);
+      border-radius: 4px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 10px;
+      &-img {
+        // image
+        img {
+          object-fit: contain;
+          display: block;
+          // min-width: 100px;
+        }
+      }
+      &-wrap {
+        // det> cta
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        &-det {
+          font-size: 16px;
+          //title> higtlights> description
+          &-title {
+            font-size: 1.2rem;
+            font-family: var(--poppins);
+          }
+          &-highlights {
+            // price> rating
+            &-price {
+              font-size: 1.5rem;
+            }
+            &-rating {
+              align-items: center;
+              flex-direction: row;
+              color: var(--primary);
+            }
+          }
+          &-description {
+            color: #746a6a;
+          }
+        }
+        &-cta {
+          //
+          &-btn {
+            border: none;
+            outline: none;
+            background-color: var(--primary);
+            color: #fff;
+            padding: 10px 12px;
+            border-radius: 4px;
+            transition: all 100ms ease-in-out;
+            cursor: pointer;
+            &:hover {
+              filter: brightness(90%);
+            }
+          }
+        }
+        @media only screen and (max-width: 768px) {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media only screen and (max-width: 768px) {
+        grid-template-columns: 1fr 2fr;
+        &-wrap {
+          &-det {
+            font-size: 14px;
+            &-title {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  .cart {
+    background-color: #fff;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.18);
+    padding: 10px;
+    gap: 1rem;
+    border-radius: 4px;
+    overflow: hidden;
+    align-self: start;
+    // head> panel> total> checkout
+    &-head {
+      // title> items > clear
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 14px;
+      background-color: #f5f5f5;
+      padding: 1rem;
+      margin: -10px;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.18);
+      &-title {
+        line-height: 1;
+        font-weight: bold;
+        font-family: var(--poppins);
+        letter-spacing: 1px;
+        font-size: 1.5rem;
+      }
+      &-items {
+        font-size: 14px;
+        font-family: var(--poppins);
+      }
+      &-clear {
+        color: red;
+        cursor: pointer;
+      }
+    }
+    &-panel {
+      // item> cta
+      &-item {
+        // title> price
+        font-size: 16px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        &-title {
+          color: #746a6a;
+        }
+        &-price {
+          font-size: 1.2rem;
+        }
+      }
+      &-cta {
+        // counter> total
+        &-counter {
+          &-btn {
+            border: none;
+            outline: none;
+            background-color: var(--primary);
+            color: #fff;
+            padding: 10px 12px;
+            border-radius: 4px;
+            transition: all 100ms ease-in-out;
+            cursor: pointer;
+            &:hover {
+              filter: brightness(90%);
+            }
+          }
+        }
+      }
+    }
+    &-total {
+      // title> items> val
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 16px;
+      padding: 1rem 0;
+      border-top: 1px dashed #746a6a;
+      border-bottom: 1px dashed #746a6a;
+      &-val {
+        font-size: 1.2rem;
+      }
+    }
+    &-checkout {
+      // btn
+      &-btn {
+        border: none;
+        outline: none;
+        width: 100%;
+        background-color: var(--primary);
+        color: #fff;
+        padding: 10px 12px;
+        border-radius: 4px;
+        transition: all 100ms ease-in-out;
+        cursor: pointer;
+        &:hover {
+          filter: brightness(90%);
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    .cart {
+      display: none;
+    }
+  }
+}
+.dflex {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

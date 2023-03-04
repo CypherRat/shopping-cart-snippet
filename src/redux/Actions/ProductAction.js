@@ -2,24 +2,6 @@ import axios from "axios";
 import { ActionTypes } from "../Types/Types";
 
 export const fetchProducts = () => {
-  // const response = [
-  //   {
-  //     id: 1,
-  //     title: "Hello",
-  //     price: 200,
-  //     description: "This is something.",
-  //     rating: { rate: 1, count: 10 },
-  //     image: "img",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Hello Mello",
-  //     price: 200,
-  //     description: "This is something.",
-  //     rating: { rate: 1, count: 10 },
-  //     image: "img",
-  //   },
-  // ];
   return async (dispatch, getState) => {
     try {
       dispatch({ type: ActionTypes.IS_LOADING });

@@ -17,7 +17,7 @@ export const ProductReducer = (state = initialState, action) => {
     case ActionTypes.IS_LOADING:
       return {
         ...state,
-        isLoading: !state.isLoading,
+        isLoading: false,
       };
     case ActionTypes.ADD_TO_CART:
       let itemExists = false;

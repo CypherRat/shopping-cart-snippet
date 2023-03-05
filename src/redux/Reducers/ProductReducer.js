@@ -4,6 +4,7 @@ const initialState = {
   products: [],
   cart: [],
   isLoading: false,
+  isLogged: false,
 };
 
 export const ProductReducer = (state = initialState, action) => {
@@ -18,6 +19,11 @@ export const ProductReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
+      };
+    case ActionTypes.IS_LOGGED:
+      return {
+        ...state,
+        isLogged: true,
       };
     case ActionTypes.ADD_TO_CART:
       let itemExists = false;

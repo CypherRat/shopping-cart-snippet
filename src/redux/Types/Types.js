@@ -4,4 +4,5 @@ export const ActionTypes = {
   IS_LOADING: "IS_LOADING",
   REMOVE_FROM_CART: "REMOVE_FROM_CART",
   CLEAR_CART: "CLEAR_CART",
+  IS_LOGGED: "IS_LOGGED",
 };

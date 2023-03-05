@@ -1,0 +1,66 @@
+.authCon {
+  position: absolute;
+  inset: 0;
+  background-color: #c5e3ec;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1050%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(197%2c 227%2c 236%2c 1)'%3e%3c/rect%3e%3cpath d='M187.9731626077805 58.30360012210104L71.27055637066898-62.54548633479235-49.57853008622439 54.15711990231916 67.1240761508871 175.00620635921254z' fill='rgba(17%2c 150%2c 190%2c 0.19)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M-91.21 16.55 a107.76 107.76 0 1 0 215.52 0 a107.76 107.76 0 1 0 -215.52 0z' fill='rgba(17%2c 150%2c 190%2c 0.19)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M187.67173685990605 65.20738478167806L77.45381998950083-61.58382469574764 60.88052738248035 175.42530165208328z' fill='rgba(17%2c 150%2c 190%2c 0.19)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1252.1876263619497 62.907993784396744L1377.035957042152 175.32193565268486 1489.44989891044 50.47360497248257 1364.6015682302377-61.94033689580554z' fill='rgba(17%2c 150%2c 190%2c 0.19)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1207.74 45.6 a165.86 165.86 0 1 0 331.72 0 a165.86 165.86 0 1 0 -331.72 0z' fill='rgba(17%2c 150%2c 190%2c 0.19)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1287.37 -34.04 a6.59 6.59 0 1 0 13.18 0 a6.59 6.59 0 1 0 -13.18 0z' fill='rgba(17%2c 150%2c 190%2c 0.19)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M-42.78 416.11 a10.89 10.89 0 1 0 21.78 0 a10.89 10.89 0 1 0 -21.78 0z' fill='rgba(17%2c 150%2c 190%2c 0.19)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M-48.5 421.83 a22.33 22.33 0 1 0 44.66 0 a22.33 22.33 0 1 0 -44.66 0z' fill='rgba(17%2c 150%2c 190%2c 0.19)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M-17.809697553304385 613.4273766902595L147.10366926590314 581.3714654669999 115.04775804264348 416.4580986477923-49.86560877656403 448.514009871052z' fill='rgba(17%2c 150%2c 190%2c 0.19)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1225.16 476.16 a131 131 0 1 0 262 0 a131 131 0 1 0 -262 0z' fill='rgba(17%2c 150%2c 190%2c 0.19)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1275 426.33 a31.33 31.33 0 1 0 62.66 0 a31.33 31.33 0 1 0 -62.66 0z' fill='rgba(17%2c 150%2c 190%2c 0.19)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1242.23 459.11 a96.88 96.88 0 1 0 193.76 0 a96.88 96.88 0 1 0 -193.76 0z' fill='rgba(17%2c 150%2c 190%2c 0.19)' class='triangle-float1'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1050'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
+}
+svg {
+  font-family: var(--rock-salt), sans-serif;
+
+  min-width: 250px;
+  height: auto;
+  text {
+    text-transform: uppercase;
+    animation: stroke 2.5s infinite alternate;
+    stroke-width: 2;
+    stroke: #000;
+    font-size: 180px;
+  }
+}
+.loginBtn {
+  padding: 12px 14px;
+  border: none;
+  outline: none;
+  background-color: var(--primary);
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.18);
+  text-transform: uppercase;
+  font-family: var(--poppins);
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  &:hover {
+    filter: brightness(95%);
+  }
+}
+@keyframes stroke {
+  0% {
+    fill: rgba(72, 138, 20, 0);
+    stroke: rgba(54, 95, 160, 1);
+    stroke-dashoffset: 25%;
+    stroke-dasharray: 0 50%;
+    stroke-width: 2;
+  }
+  70% {
+    fill: rgba(72, 138, 20, 0);
+    stroke: rgba(54, 95, 160, 1);
+  }
+  80% {
+    fill: rgba(72, 138, 20, 0);
+    stroke: rgba(54, 95, 160, 1);
+    stroke-width: 3;
+  }
+  100% {
+    fill: var(--primary);
+    stroke: rgba(54, 95, 160, 0);
+    stroke-dashoffset: -25%;
+    stroke-dasharray: 50% 0;
+    stroke-width: 0;
+  }
+}

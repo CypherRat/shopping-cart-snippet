@@ -33,3 +33,9 @@ export const clearCart = () => {
     type: ActionTypes.CLEAR_CART,
   };
 };
+export const logIn = () => {
+  console.log("tapped");
+  return {
+    type: ActionTypes.IS_LOGGED,
+  };
+};

@@ -1,7 +1,71 @@
 .container {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: auto 2fr 1fr;
   gap: 1rem;
+  .categories {
+    min-width: 200px;
+    &-label {
+      line-height: 1;
+      font-weight: bold;
+      font-family: var(--poppins);
+      letter-spacing: 1px;
+    }
+    &-wrap {
+      font-size: 1rem;
+      padding: 0;
+      margin-left: initial;
+      &-lists {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        user-select: none;
+        &-list {
+          background: linear-gradient(to right, #fff 50%, #c5e3ec);
+          padding: 10px;
+          border-top-left-radius: 4px;
+          transition: all 250ms ease-in-out;
+          border-bottom-left-radius: 4px;
+          cursor: pointer;
+          text-transform: capitalize;
+          &:hover {
+            background: #c5e3ec;
+          }
+          &.active {
+            position: relative;
+            background: #fff;
+            color: var(--primary);
+            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.18);
+            &::before {
+              content: "";
+              position: absolute;
+              top: 0;
+              right: -20px;
+              bottom: 0;
+              width: 21px;
+              height: 100%;
+              background-color: #fff;
+            }
+          }
+        }
+        @media only screen and (max-width: 768px) {
+          flex-flow: row nowrap;
+          overflow-x: auto;
+          gap: 10px;
+          line-height: 2;
+          &-list {
+            &:hover {
+              background: #fff;
+            }
+            &.active {
+              &::before {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   .products {
     &-label {
       line-height: 1;

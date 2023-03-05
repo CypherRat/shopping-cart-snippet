@@ -3,8 +3,11 @@ import { ActionTypes } from "../Types/Types";
 const initialState = {
   products: [],
   cart: [],
+  categories: [],
+  filteredProducts: [],
   isLoading: false,
   isLogged: false,
+  activeCategory: null,
 };
 
 export const ProductReducer = (state = initialState, action) => {
@@ -13,6 +16,7 @@ export const ProductReducer = (state = initialState, action) => {
       return {
         ...state,
         products: action.payload,
+        categories: action.payload,
         isLoading: false,
       };
     case ActionTypes.IS_LOADING:
@@ -46,10 +50,27 @@ export const ProductReducer = (state = initialState, action) => {
         ...state,
         cart: filteredCart,
       };
+    case ActionTypes.FILTER_PRODUCTS:
+      if (state.activeCategory === action.payload) return state;
+      let filteredProducts = [];
+      filteredProducts = state.products.filter((product) =>
+        action.payload.includes(product.category)
+      );
+      return {
+        ...state,
+        filteredProducts: filteredProducts,
+        activeCategory: action.payload,
+      };
     case ActionTypes.CLEAR_CART:
       return {
         ...state,
         cart: [],
+      };
+    case ActionTypes.CLEAR_CATEGORY:
+      return {
+        ...state,
+        filteredProducts: [],
+        activeCategory: null,
       };
     default:
       return state;

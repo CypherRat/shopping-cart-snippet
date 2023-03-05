@@ -2,13 +2,18 @@ import React from "react";
 import "./home.scss";
 import ProductItems from "../components/ProductItems";
 import CartItems from "../components/CartItems";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCategory, filterProducts } from "../redux/Actions/ProductAction";
 
 export default function Home() {
+  const dispatch = useDispatch();
   const productIsLoading = useSelector(
     (state) => state.ProductReducer.isLoading
   );
-  const categories = useSelector((state) => state.ProductReducer.products);
+  const categories = useSelector((state) => state.ProductReducer.categories);
+  const selectedCategory = useSelector(
+    (state) => state.ProductReducer.activeCategory
+  );
   const uniqueCategories = categories.filter(
     (e, i) => categories.findIndex((a) => a["category"] === e["category"]) === i
   );
@@ -18,14 +23,28 @@ export default function Home() {
         <div className="categories-label">Categories</div>
         <div className="categories-wrap">
           <div className="categories-wrap-lists">
-            <div className="categories-wrap-lists-list active">All Items</div>
-            {uniqueCategories.map(({ id, category }) => {
-              return (
-                <div key={id} className="categories-wrap-lists-list">
-                  {category}
-                </div>
-              );
-            })}
+            <div
+              className={`categories-wrap-lists-list${
+                selectedCategory === null ? " active" : ""
+              }`}
+              onClick={() => dispatch(clearCategory())}
+            >
+              All Items
+            </div>
+            {uniqueCategories.length > 0 &&
+              uniqueCategories.map(({ id, category }) => {
+                return (
+                  <div
+                    key={id}
+                    className={`categories-wrap-lists-list${
+                      selectedCategory === category ? " active" : ""
+                    }`}
+                    onClick={() => dispatch(filterProducts(category))}
+                  >
+                    {category}
+                  </div>
+                );
+              })}
           </div>
         </div>
       </div>

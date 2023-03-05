@@ -11,19 +11,24 @@ export default function ProductItems() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.ProductReducer.products);
   const cartItems = useSelector((state) => state.ProductReducer.cart);
+  const filteredProducts = useSelector(
+    (state) => state.ProductReducer.filteredProducts
+  );
+
+  let showProducts = [];
+  showProducts = filteredProducts.length > 0 ? filteredProducts : products;
 
   useEffect(() => {
     dispatch(fetchProducts());
-  }, []);
+  }, [dispatch]);
   const truncateString = (str, num = 70) => {
     if (str.length > num) return str.slice(0, num) + "...";
     return str;
   };
-  // console.log(products.length);
   return (
     <>
-      {products.length > 0 &&
-        products.map(({ id, title, price, description, image, rating }) => {
+      {showProducts.length > 0 &&
+        showProducts.map(({ id, title, price, description, image, rating }) => {
           let addedStatus = false;
           if (cartItems.some((item) => item.id === id)) addedStatus = true;
           return (

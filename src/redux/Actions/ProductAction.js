@@ -34,8 +34,18 @@ export const clearCart = () => {
   };
 };
 export const logIn = () => {
-  console.log("tapped");
   return {
     type: ActionTypes.IS_LOGGED,
+  };
+};
+export const clearCategory = (category) => {
+  return {
+    type: ActionTypes.CLEAR_CATEGORY,
+  };
+};
+export const filterProducts = (category) => {
+  return {
+    type: ActionTypes.FILTER_PRODUCTS,
+    payload: category,
   };
 };

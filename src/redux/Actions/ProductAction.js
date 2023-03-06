@@ -49,3 +49,14 @@ export const filterProducts = (category) => {
     payload: category,
   };
 };
+export const updateCartItems = (
+  itemId = null,
+  itemQuantity = null,
+  itemPrice = null,
+  updateType = 1
+) => {
+  return {
+    type: ActionTypes.UPDATE_CART,
+    payload: { itemId, itemQuantity, itemPrice, updateType },
+  };
+};

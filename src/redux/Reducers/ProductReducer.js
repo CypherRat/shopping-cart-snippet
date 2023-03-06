@@ -61,6 +61,38 @@ export const ProductReducer = (state = initialState, action) => {
         filteredProducts: filteredProducts,
         activeCategory: action.payload,
       };
+    case ActionTypes.UPDATE_CART:
+      const itemIndex = state.cart.findIndex(
+        (obj) => obj.id === action.payload.itemId
+      );
+      if (itemIndex === -1) return state;
+      const itemQuantity =
+        action.payload.updateType === 1
+          ? action.payload.itemQuantity + 1
+          : action.payload.itemQuantity - 1;
+      if (itemQuantity < 1) {
+        let filteredCart = [];
+        filteredCart = state.cart.filter(
+          (item) => item.id !== action.payload.itemId
+        );
+        return { ...state, cart: filteredCart };
+      }
+      if (itemQuantity > 10) return state;
+      const itemTotal = action.payload.itemPrice * itemQuantity;
+      const updatedItem = {
+        ...state.cart[itemIndex],
+        quantity: itemQuantity,
+        total: itemTotal.toFixed(2),
+      };
+      const updatedCartItems = [
+        ...state.cart.slice(0, itemIndex),
+        updatedItem,
+        ...state.cart.slice(itemIndex + 1),
+      ];
+      return {
+        ...state,
+        cart: updatedCartItems,
+      };
     case ActionTypes.CLEAR_CART:
       return {
         ...state,

@@ -1,7 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { removeFromCart, clearCart } from "../redux/Actions/ProductAction";
+import {
+  removeFromCart,
+  clearCart,
+  updateCartItems,
+} from "../redux/Actions/ProductAction";
 
 export default function CartItems() {
   const cart = useSelector((state) => state.ProductReducer.cart);
@@ -33,9 +37,30 @@ export default function CartItems() {
                 <div className="cart-panel-item" key={id}>
                   <div className="cart-panel-item-detail">
                     <div className="cart-panel-item-title">{title}</div>
-                    <div className="cart-panel-item-price">Rs. {price}</div>
+                    <div className="cart-panel-item-price">
+                      <small>{quantity}</small> x Rs. {price}
+                    </div>
                   </div>
                   <div className="cart-panel-item-cta">
+                    <div className="cart-panel-item-cta-updateBtn">
+                      <button
+                        className="cart-panel-item-cta-updateBtn-btn"
+                        onClick={() =>
+                          dispatch(updateCartItems(id, quantity, price, -1))
+                        }
+                      >
+                        -
+                      </button>
+                      <span>{quantity}</span>
+                      <button
+                        className="cart-panel-item-cta-updateBtn-btn"
+                        onClick={() =>
+                          dispatch(updateCartItems(id, quantity, price, 1))
+                        }
+                      >
+                        +
+                      </button>
+                    </div>
                     <div className="cart-panel-item-cta-counter">
                       <button
                         className="cart-checkout-btn"
@@ -44,7 +69,9 @@ export default function CartItems() {
                         Remove
                       </button>
                     </div>
-                    {/* <div className="cart-panel-item-cta-total">Rs. 100</div> */}
+                    <div className="cart-panel-item-cta-total">
+                      <small>Rs. {total}</small>
+                    </div>
                   </div>
                 </div>
               );
@@ -59,7 +86,7 @@ export default function CartItems() {
               Rs.
               {cart
                 .reduce((total, item) => {
-                  return total + item.price;
+                  return total + item.quantity * item.price;
                 }, 0)
                 .toFixed(2)}
             </div>

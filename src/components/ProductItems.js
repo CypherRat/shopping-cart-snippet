@@ -5,6 +5,7 @@ import {
   fetchProducts,
   addToCart,
   removeFromCart,
+  updateCartItems,
 } from "../redux/Actions/ProductAction";
 
 export default function ProductItems() {
@@ -29,8 +30,13 @@ export default function ProductItems() {
     <>
       {showProducts.length > 0 &&
         showProducts.map(({ id, title, price, description, image, rating }) => {
+          let itemQuantity = 1;
+          let itemDetails = [];
           let addedStatus = false;
           if (cartItems.some((item) => item.id === id)) addedStatus = true;
+          if (addedStatus)
+            itemDetails = cartItems.filter((item) => item.id === id);
+          if (addedStatus) itemQuantity = itemDetails[0].quantity;
           return (
             <div className="prod" key={id}>
               <div className="prod-img">
@@ -72,12 +78,37 @@ export default function ProductItems() {
                     </button>
                   )}
                   {addedStatus && (
-                    <button
-                      className="prod-wrap-cta-btn"
-                      onClick={() => dispatch(removeFromCart(id))}
-                    >
-                      Remove from Cart
-                    </button>
+                    <>
+                      <div className="prod-wrap-cta-update">
+                        <button
+                          className="prod-wrap-cta-btn"
+                          onClick={() =>
+                            dispatch(
+                              updateCartItems(id, itemQuantity, price, -1)
+                            )
+                          }
+                        >
+                          -
+                        </button>
+                        <span>{itemQuantity}</span>
+                        <button
+                          className="prod-wrap-cta-btn"
+                          onClick={() =>
+                            dispatch(
+                              updateCartItems(id, itemQuantity, price, 1)
+                            )
+                          }
+                        >
+                          +
+                        </button>
+                      </div>
+                      <button
+                        className="prod-wrap-cta-btn"
+                        onClick={() => dispatch(removeFromCart(id))}
+                      >
+                        Remove from Cart
+                      </button>
+                    </>
                   )}
                 </div>
               </div>

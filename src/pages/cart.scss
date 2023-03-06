@@ -49,21 +49,46 @@ main .cart {
       &-price {
         font-size: 1.2rem;
       }
-    }
-    &-cta {
-      // counter> total
-      &-counter {
-        &-btn {
-          border: none;
-          outline: none;
-          background-color: var(--primary);
-          color: #fff;
-          padding: 10px 12px;
-          border-radius: 4px;
-          transition: all 100ms ease-in-out;
-          cursor: pointer;
-          &:hover {
-            filter: brightness(90%);
+
+      &-cta {
+        // counter> total
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        &-updateBtn {
+          display: flex;
+          flex-direction: row;
+          gap: 5px;
+          align-items: center;
+          justify-content: space-between;
+
+          &-btn {
+            border: none;
+            outline: none;
+            background-color: var(--primary);
+            color: #fff;
+            padding: 5px 7px;
+            border-radius: 4px;
+            transition: all 100ms ease-in-out;
+            cursor: pointer;
+            &:hover {
+              filter: brightness(90%);
+            }
+          }
+        }
+        &-counter {
+          &-btn {
+            border: none;
+            outline: none;
+            background-color: var(--primary);
+            color: #fff;
+            padding: 10px 12px;
+            border-radius: 4px;
+            transition: all 100ms ease-in-out;
+            cursor: pointer;
+            &:hover {
+              filter: brightness(90%);
+            }
           }
         }
       }
@@ -83,6 +108,7 @@ main .cart {
     }
   }
   &-checkout {
+    display: none;
     // btn
     &-btn {
       border: none;
